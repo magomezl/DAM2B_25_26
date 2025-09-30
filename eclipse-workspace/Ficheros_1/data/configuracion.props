@@ -1,0 +1,8 @@
+#Fichero de configuración
+#Tue Sep 30 16:17:23 CEST 2025
+date=2022-01-08
+password=micontrasena
+port=3316
+power=false
+server=localhost
+user=usuario
