@@ -10,14 +10,9 @@ public class Persona implements Serializable{
 	 */
 	private static final long serialVersionUID = 7087622712910013542L;
 	
-	
 	private StringBuilder nombre;
 	private StringBuilder apellido1;
 	private StringBuilder apellido2;
-	
-	
-	
-	
 	private LocalDate nacimiento;
 	 
 	public Persona() {

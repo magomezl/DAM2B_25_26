@@ -1,13 +1,11 @@
-package _8_ejercicio;
+package _9_ejercicio;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -15,41 +13,53 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
+import org.w3c.dom.Element;
+import org.w3c.dom.Text;
 
 import utilidades.Utilidades;
 
-public class Ejercicio_8 {
-	private final static String FICHEROTRABAJO = "_8_ejercicio" + 
-					System.getProperty("file.separator") + "ejercicio8.xml";
-	private final static String FICHEROSALIDA = "_8_ejercicio" + 
-			System.getProperty("file.separator") +"ejercicio8_URL.xml";
+public class Ejercicio_9 {
+	private final static String FICHEROSALIDA = "_9_ejercicio" + 
+			System.getProperty("file.separator") +"ejercicio9.xml";
 	
 	public static void main(String[] args) {
 		try {
 			DocumentBuilderFactory dBF = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dB =  dBF.newDocumentBuilder();
+			Document doc = dB.newDocument();
 			
-			Document doc = dB.parse(new File(Utilidades.getRuta()+FICHEROTRABAJO));
+			// Creamos elementos DOM
+			Element raiz = doc.createElement("elementoRaiz");
+			Element hijo1 = doc.createElement("elementoHijo");
+			Element hijo2 = doc.createElement("elementoHijo");
+//			Text textoh1 = doc.createTextNode("contenido hijo 1");
+			Text textoh2 = doc.createTextNode("contenido hijo 2");
+			Attr atributo = doc.createAttribute("nombre");
+			atributo.setNodeValue("hijo1");
 			
-			URI uri = new URI("https://www.w3schools.com/xml/cd_catalog.xml");
-			Document docWeb = dB.parse(uri.toURL().openStream());
+			
+			// Creamos estructura de árbol DOM
+			doc.appendChild(raiz);
+			raiz.appendChild(hijo1);
+			raiz.appendChild(hijo2);
+			hijo1.setTextContent("contenido hijo 1");
+//			hijo1.appendChild(textoh1);
+			hijo1.setAttributeNode(atributo);
+			
+			hijo2.appendChild(textoh2);
+			hijo2.setAttribute("nombre", "hijo2");
 			
 			TransformerFactory tF = TransformerFactory.newInstance();
 			Transformer t = tF.newTransformer();
-			t.transform(new DOMSource(doc), new StreamResult(System.out));
 			
-			System.out.println("DOCUMENTO EN LÍNEA");
-			t.transform(new DOMSource(docWeb), new StreamResult(System.out));
-			t.transform(new DOMSource(docWeb), new StreamResult(new File(Utilidades.getRuta() + FICHEROSALIDA)));
+			t.setOutputProperty(OutputKeys.INDENT, "yes");
+			t.transform(new DOMSource(doc), new StreamResult(System.out));
+			t.transform(new DOMSource(doc), new StreamResult(new File(Utilidades.getRuta()+FICHEROSALIDA)));
+			
 			
 		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (TransformerConfigurationException e) {
@@ -58,15 +68,8 @@ public class Ejercicio_8 {
 		} catch (TransformerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		
+
 	}
+
 }
