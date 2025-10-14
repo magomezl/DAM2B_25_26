@@ -45,8 +45,6 @@ public class Ejercicio5 {
 		return contador;
 	}
 
-
-
 	private static Persona obtenerDatos() {
 		Persona persona = new Persona();
 		System.out.println("DATOS DE USUARIO:");

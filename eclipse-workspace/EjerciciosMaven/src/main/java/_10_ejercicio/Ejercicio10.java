@@ -1,4 +1,4 @@
-package ejercicio10;
+package _10_ejercicio;
 
 import java.io.EOFException;
 import java.io.File;
@@ -23,17 +23,19 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 import ejercicio5.Persona;
-import paquete_1.Utilidades;
+import utilidades.Utilidades;
+
+
 
 public class Ejercicio10 {
-	private final static String DOCTRABAJO_IN = "FicheroSerializacion.bin";
-	private final static String DOCTRABAJO_OUT = "FicheroPersonasSerializado.xml";
+	private final static String DOCTRABAJO_IN = "/data/FicheroSerializacion.bin";
+	private final static String DOCTRABAJO_OUT = Utilidades.getRuta() + Utilidades.getRutaEjer10() + "FicheroPersonasSerializado.xml";
 
 	public static void main(String[] args) {
 		Document doc = null;
 		Transformer t = null;
-		try (ObjectInputStream oIS = new ObjectInputStream(new FileInputStream
-				(new File(Utilidades.RUTA+DOCTRABAJO_IN)))){
+		try (ObjectInputStream oIS = new ObjectInputStream(
+				Ejercicio10.class.getResourceAsStream(DOCTRABAJO_IN))){
 			
 			DocumentBuilder dB = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 			doc = dB.newDocument();
@@ -51,7 +53,7 @@ public class Ejercicio10 {
 				CreaElemento("nombre", persona.getNombre().toString(), elementoPersona, doc);
 				CreaElemento("apellido1", persona.getApellido1().toString(), elementoPersona, doc);
 				CreaElemento("apellido2", persona.getApellido2().toString(), elementoPersona, doc);
-				CreaElemento("nacimiento", persona.getNacimiento().toString(), elementoPersona, doc);
+//				CreaElemento("nacimiento", persona.getNacimiento().toString(), elementoPersona, doc);
 				elementoRaiz.appendChild(elementoPersona);
 			}
 			
@@ -59,7 +61,7 @@ public class Ejercicio10 {
 		}catch (EOFException e) {
 			System.out.println("Fin de fichero");
 			try {
-				t.transform(new DOMSource(doc), new StreamResult(new File(Utilidades.RUTA+DOCTRABAJO_OUT)));
+				t.transform(new DOMSource(doc), new StreamResult(new File(DOCTRABAJO_OUT)));
 			} catch (TransformerException e1) {
 				e1.printStackTrace();
 			}
