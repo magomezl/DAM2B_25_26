@@ -11,7 +11,7 @@
 			<version>3.7</version>
 			<scope>compile</scope>
 		</dependency>
-		<!-- Apache PI. Ficheros Excel -->
+		<!-- Apache POI. Ficheros Excel -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
