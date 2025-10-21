@@ -23,10 +23,10 @@ public class Ejercicio_12 {
 		
 		try {
 			wb = new XSSFWorkbook(new FileInputStream(new File(Utilidades.getRuta() + Utilidades.getRutaEjer12()+ DOCTRABAJO_IN)));
-			buscarEstacionesPorOperador("Wenea");
-			buscarEstacionesPorProvincia("salamanca");
-			buscarEstacionesPorProvincia("valladolid");
-//			modificaOperador("Wenea", "WNA");
+//			buscarEstacionesPorOperador("Wenea");
+			buscarEstacionesPorProvincia("soria");
+//			buscarEstacionesPorProvincia("valladolid");
+			modificaOperador("Wenea", "WeneaWenea");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,7 +34,26 @@ public class Ejercicio_12 {
 	}
 
 	private static void modificaOperador(String antiguoNombre, String nuevoNombre) {
-		//Para casa 
+		try (FileInputStream fis = new FileInputStream(Utilidades.getRuta() + Utilidades.getRutaEjer12() + DOCTRABAJO_IN);
+				Workbook wb = new XSSFWorkbook(fis)){
+			Sheet hoja = wb.getSheetAt(0);
+			for (Row fila : hoja) {
+				Cell celdaBusqueda = fila.getCell(2);
+				if (celdaBusqueda!=null) {
+					if (celdaBusqueda.getStringCellValue().toLowerCase().contains(antiguoNombre.toLowerCase())) {
+						celdaBusqueda.setCellValue(nuevoNombre);
+					}
+				}
+			}
+			wb.write(new FileOutputStream(Utilidades.getRuta() + Utilidades.getRutaEjer12() + DOCTRABAJO_IN));
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("Documento no encontrado");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Error de lectura/escritura");
+			e.printStackTrace();
+		}
 		
 	}
 

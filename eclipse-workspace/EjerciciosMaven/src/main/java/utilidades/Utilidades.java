@@ -11,6 +11,8 @@ public class Utilidades {
 	private final static String RUTA_EJER_11 =  "_11_ejercicio" + System.getProperty("file.separator");
 		
 	private final static String RUTA_EJER_12 =  "_12_ejercicio" + System.getProperty("file.separator");
+	private final static String RUTA_EJER_13 =  "_13_ejercicio" + System.getProperty("file.separator");
+	private final static String RUTA_EJER_14 =  "_14_ejercicio" + System.getProperty("file.separator");
 	public static String getRuta() {
 		return RUTA;
 	}
@@ -25,6 +27,14 @@ public class Utilidades {
 
 	public static String getRutaEjer12() {
 		return RUTA_EJER_12;
+	}
+
+	public static String getRutaEjer13() {
+		return RUTA_EJER_13;
+	}
+
+	public static String getRutaEjer14() {
+		return RUTA_EJER_14;
 	}
 	
 	

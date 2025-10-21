@@ -17,8 +17,12 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>5.2.3</version>
 		</dependency>
-
-
+		<!-- Mapeo clases a XML con XStream -->
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.19</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
 		<!--
 		<dependency>

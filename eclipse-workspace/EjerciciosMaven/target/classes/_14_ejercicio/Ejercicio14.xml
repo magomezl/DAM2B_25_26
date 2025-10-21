@@ -1,0 +1,50 @@
+<list>
+  <miembro name="Alicia">
+    <primerApellido>Alonso</primerApellido>
+    <segundoApellido>Perez</segundoApellido>
+  </miembro>
+  <miembro name="Alfonso">
+    <primerApellido>Gómez</primerApellido>
+    <segundoApellido>Borrego</segundoApellido>
+    <nacimiento>2020-12-21</nacimiento>
+  </miembro>
+  <miembro name="Antoni">
+    <primerApellido>Pere4z</primerApellido>
+    <segundoApellido>Perez</segundoApellido>
+  </miembro>
+  <miembro name="Alfonso">
+    <primerApellido>Gómez</primerApellido>
+    <segundoApellido>Borrego</segundoApellido>
+    <nacimiento>2020-12-21</nacimiento>
+  </miembro>
+  <miembro name="Alfonso">
+    <primerApellido>Gómez</primerApellido>
+    <segundoApellido>Borrego</segundoApellido>
+    <nacimiento>2020-12-21</nacimiento>
+  </miembro>
+  <miembro name="Alfonso">
+    <primerApellido>Gómez</primerApellido>
+    <segundoApellido>Borrego</segundoApellido>
+    <nacimiento>2020-12-21</nacimiento>
+  </miembro>
+  <miembro name="Alfonso">
+    <primerApellido>Gómez</primerApellido>
+    <segundoApellido>Borrego</segundoApellido>
+    <nacimiento>2020-12-21</nacimiento>
+  </miembro>
+  <miembro name="Alfonso">
+    <primerApellido>Gómez</primerApellido>
+    <segundoApellido>Borrego</segundoApellido>
+    <nacimiento>2020-12-21</nacimiento>
+  </miembro>
+  <miembro name="Alfonso">
+    <primerApellido>Gómez</primerApellido>
+    <segundoApellido>Borrego</segundoApellido>
+    <nacimiento>2020-12-21</nacimiento>
+  </miembro>
+  <miembro name="Alfonso">
+    <primerApellido>Gómez</primerApellido>
+    <segundoApellido>Borrego</segundoApellido>
+    <nacimiento>2020-12-21</nacimiento>
+  </miembro>
+</list>
