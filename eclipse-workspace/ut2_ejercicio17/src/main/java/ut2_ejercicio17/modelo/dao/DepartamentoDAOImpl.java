@@ -50,6 +50,7 @@ public class DepartamentoDAOImpl implements DepartamentoDAO {
 		try (PreparedStatement sentencia = Conexion.getInstance().getCon().prepareStatement("UPDATE departamentos SET dnombre = ?, loc = ? WHERE dept_no = ?")){
 			sentencia.setString(1, dpto.getDepNombre());
 			sentencia.setString(2, dpto.getDepLocalidad());
+			sentencia.setInt(3, dptoNum);
 			return sentencia.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
