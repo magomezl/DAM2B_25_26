@@ -34,9 +34,9 @@
 		<!--version de javafx que se usará -->
 		<javafx.version>21</javafx.version>
 		<!--el código fuente está escrito para Java 17 -->
-		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.source>21</maven.compiler.source>
 		<!--el bytecode generado será compatible con Java 17 -->
-		<maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.target>21</maven.compiler.target>
 	</properties>
 	<!--plugin que permite ejecutar la aplicación JavaFX directamente desde Maven sin tener que configurar argumentos de la Virtual Machine -->
 	<build>

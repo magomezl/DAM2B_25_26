@@ -3,6 +3,9 @@ package ut2_ejercicio17.main;
 import java.util.ArrayList;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ut2_ejercicio17.modelo.dao.DepartamentoDAO;
 import ut2_ejercicio17.modelo.dao.DepartamentoDAOImpl;
@@ -12,10 +15,15 @@ import ut2_ejercicio17.modelo.dto.DepartamentoDTO;
 public class Main extends Application{
 	
 	public static void main(String[] args) {
+		/**
+		 *  lanzar la aplicación JavaFX, iniciar el entorno gráfico y llama automaticamente al método start
+		 */
 		
-		DepartamentoDAO dptDAO = new DepartamentoDAOImpl();
-		DepartamentoDTO dptoDTO = new DepartamentoDTO();
-//		dptoDTO.setDepNombre("Formacion");
+		launch(args);
+		
+//		DepartamentoDAO dptDAO = new DepartamentoDAOImpl();
+//		DepartamentoDTO dptoDTO = new DepartamentoDTO();
+////		dptoDTO.setDepNombre("Formacion");
 //		dptoDTO.setDepLocalidad("Murcia");
 //		dptDAO.anadirDpto(dptoDTO);
 //		
@@ -33,18 +41,31 @@ public class Main extends Application{
 //		dptoDTO.setDepLocalidad("Madrid");
 //		dptDAO.modificarDpto(16, dptoDTO);
 		
-		ArrayList<DepartamentoDTO> alDpto = new ArrayList<DepartamentoDTO>();
-		
-		alDpto = dptDAO.listarDptos();
-		for(DepartamentoDTO dpto: alDpto) {
-			System.out.println(dpto);
-		}
-		Conexion.getInstance().cerrarConexion();
+//		ArrayList<DepartamentoDTO> alDpto = new ArrayList<DepartamentoDTO>();
+//		
+//		alDpto = dptDAO.listarDptos();
+//		for(DepartamentoDTO dpto: alDpto) {
+//			System.out.println(dpto);
+//		}
+//		Conexion.getInstance().cerrarConexion();
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
+		/**
+		 *este método se ejecuta automaticamente cuando se lanza la aplicacion 
+		 *el parámetro Stage representa la ventana principal de la aplicación 
+		 */
+		
+		// Carga la vista FXML 
+		Parent root = FXMLLoader.load(getClass().getResource("/view/vista.fxml"));
+		// Crea la escena
+		Scene scene = new Scene(root);
+		//Configuramos y hacemos visible la ventana
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Gestión de empresa");
+		primaryStage.show();
+		
 		
 	}
 }
