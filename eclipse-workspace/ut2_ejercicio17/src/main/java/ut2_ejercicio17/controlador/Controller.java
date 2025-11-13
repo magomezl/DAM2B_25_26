@@ -12,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import ut2_ejercicio17.modelo.dao.DepartamentoDAO;
 import ut2_ejercicio17.modelo.dao.DepartamentoDAOImpl;
 import ut2_ejercicio17.modelo.dto.DepartamentoDTO;
@@ -49,6 +50,13 @@ public class Controller {
 		colNombreDpto.setCellValueFactory(new PropertyValueFactory<>("depNombre"));
 		colLocalidadDpto.setCellValueFactory(new PropertyValueFactory<>("depLocalidad"));
 		
+		cargarDatosDepartamentos();
+		
+		
+		
+	}
+	
+	private void cargarDatosDepartamentos() {
 		ArrayList<DepartamentoDTOPropiedadesJavaFX> alDptoFX = new ArrayList<DepartamentoDTOPropiedadesJavaFX>();
 		DepartamentoDAO dptoDAO = new DepartamentoDAOImpl();
 		for (DepartamentoDTO dpto : dptoDAO.listarDptos()) {
@@ -59,10 +67,8 @@ public class Controller {
 		
 		ObservableList<DepartamentoDTOPropiedadesJavaFX> listaDepartamentos = FXCollections.observableArrayList(alDptoFX);
 		tablaDepartamentos.setItems(listaDepartamentos);
-		
 	}
-	
-	
+
 	@FXML
 	private void guardarDepartamento(ActionEvent event) {
 		DepartamentoDTO dpto = new DepartamentoDTO();
@@ -71,8 +77,44 @@ public class Controller {
 		
 		DepartamentoDAO dptoDAO = new DepartamentoDAOImpl();
 		dptoDAO.anadirDpto(dpto);
+		cargarDatosDepartamentos();
+		txtNombreDpto.setText(null);
+		txtLocalidadDpto.setText(null);
+	}
+
+	@FXML
+	void eliminarDepartamento(ActionEvent event) {
+		DepartamentoDAO dptoDAO = new DepartamentoDAOImpl();
+		DepartamentoDTOPropiedadesJavaFX dptoSeleccionado = tablaDepartamentos.getSelectionModel().getSelectedItem();
+		if (dptoSeleccionado != null) {
+			dptoDAO.eliminarDpto(dptoSeleccionado.getDepNum());
+			cargarDatosDepartamentos();
+		}
+	}
+
+	@FXML
+	void modificarDepartamento(ActionEvent event) {
+		DepartamentoDAO dptoDAO = new DepartamentoDAOImpl();
+		
+		DepartamentoDTOPropiedadesJavaFX dptoSeleccionado = tablaDepartamentos.getSelectionModel().getSelectedItem();
+		if (dptoSeleccionado != null) {
+			DepartamentoDTO dptoMod = new DepartamentoDTO();
+			dptoMod.setDepNum(dptoSeleccionado.getDepNum());
+			dptoMod.setDepNombre(txtNombreDpto.getText());
+			dptoMod.setDepLocalidad(txtLocalidadDpto.getText());
+			dptoDAO.modificarDpto(dptoSeleccionado.getDepNum(), dptoMod);
+			cargarDatosDepartamentos();
+			txtNombreDpto.setText(null);
+			txtLocalidadDpto.setText(null);
+		}
 	}
 	
-	
-
+	@FXML
+	void seleccionarDpto(MouseEvent event) {
+		DepartamentoDTOPropiedadesJavaFX dptoSeleccionado = tablaDepartamentos.getSelectionModel().getSelectedItem();
+		if (dptoSeleccionado != null) {
+			txtNombreDpto.setText(dptoSeleccionado.getDepNombre());
+			txtLocalidadDpto.setText(dptoSeleccionado.getDepLocalidad());
+		}
+	}
 }

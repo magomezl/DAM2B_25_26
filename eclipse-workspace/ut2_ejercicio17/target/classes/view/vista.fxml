@@ -49,7 +49,7 @@
                <content>
                   <VBox prefHeight="201.0" prefWidth="640.0">
                      <children>
-                        <TableView fx:id="tablaDepartamentos" prefHeight="200.0" prefWidth="200.0">
+                        <TableView fx:id="tablaDepartamentos" onMouseClicked="#seleccionarDpto" prefHeight="200.0" prefWidth="200.0">
                           <columns>
                             <TableColumn fx:id="colIdDpto" prefWidth="75.0" text="ID" />
                             <TableColumn fx:id="colNombreDpto" prefWidth="75.0" text="Nombre" />
@@ -65,8 +65,8 @@
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button mnemonicParsing="false" onAction="#guardarDepartamento" text="Anadir Departamento" />
-                              <Button mnemonicParsing="false" text="Modificar Departamento" />
-                              <Button mnemonicParsing="false" text="Eliminar Departamento" />
+                              <Button mnemonicParsing="false" onAction="#modificarDepartamento" text="Modificar Departamento" />
+                              <Button mnemonicParsing="false" onAction="#eliminarDepartamento" text="Eliminar Departamento" />
                            </children>
                         </HBox>
                      </children>
