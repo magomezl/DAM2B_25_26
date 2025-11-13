@@ -4,6 +4,8 @@ package ut2_ejercicio17.controlador;
 
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -50,9 +52,14 @@ public class Controller {
 		ArrayList<DepartamentoDTOPropiedadesJavaFX> alDptoFX = new ArrayList<DepartamentoDTOPropiedadesJavaFX>();
 		DepartamentoDAO dptoDAO = new DepartamentoDAOImpl();
 		for (DepartamentoDTO dpto : dptoDAO.listarDptos()) {
-			DepartamentoDTOPropiedadesJavaFX dptoFX = new DepartamentoDTOPropiedadesJavaFX(dpto.getDepNum(), dpto.getDepNombre(), dpto.getDepLocalidad());
+			DepartamentoDTOPropiedadesJavaFX dptoFX = new DepartamentoDTOPropiedadesJavaFX(dpto.getDepNum(), 
+					dpto.getDepNombre(), dpto.getDepLocalidad());
 			alDptoFX.add(dptoFX);
 		}
+		
+		ObservableList<DepartamentoDTOPropiedadesJavaFX> listaDepartamentos = FXCollections.observableArrayList(alDptoFX);
+		tablaDepartamentos.setItems(listaDepartamentos);
+		
 	}
 	
 	
