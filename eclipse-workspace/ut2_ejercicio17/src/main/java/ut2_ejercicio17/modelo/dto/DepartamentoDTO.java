@@ -43,7 +43,7 @@ public class DepartamentoDTO {
 	@Override
 	public String toString() {
 		return "DepartamentoDTO [depNum=" + depNum + ", depNombre=" + depNombre + ", depLocalidad=" + depLocalidad
-				+ "]";
+				+ "]\n";
 	}
 	
 	

@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -20,6 +21,15 @@ import ut2_ejercicio17.modelo.dto.DepartamentoDTOPropiedadesJavaFX;
 
 
 public class Controller {
+	@FXML
+	private Button btnAnadirDpto;
+
+	@FXML
+	private Button btnEliminarDpto;
+
+	@FXML
+	private Button btnModificarDpto;
+
 	@FXML
 	private TextField txtNombreDpto;
 	
@@ -89,6 +99,8 @@ public class Controller {
 		if (dptoSeleccionado != null) {
 			dptoDAO.eliminarDpto(dptoSeleccionado.getDepNum());
 			cargarDatosDepartamentos();
+			txtNombreDpto.setText(null);
+			txtLocalidadDpto.setText(null);
 		}
 	}
 
@@ -115,6 +127,7 @@ public class Controller {
 		if (dptoSeleccionado != null) {
 			txtNombreDpto.setText(dptoSeleccionado.getDepNombre());
 			txtLocalidadDpto.setText(dptoSeleccionado.getDepLocalidad());
+			
 		}
 	}
 }
