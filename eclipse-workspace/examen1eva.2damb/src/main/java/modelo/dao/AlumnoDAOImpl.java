@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import modelo.bd.ConexionDB;
 import modelo.bd.ConexionDOC;
@@ -28,7 +30,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
 			try (ResultSet resultado = sentencia0.executeQuery()){
 				// Ya existe el alumno 
 				if (resultado.next()){
-					return resultado.getInt(0);
+					return resultado.getInt(1);
 				}
 			}
 			sentencia.setString(1, alumno.getNombre());
@@ -55,7 +57,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
 				"SELECT * FROM alumnos")) {
 			ResultSet resultado = sentencia.executeQuery();
 			while(resultado.next()) {
-				alAlumnos.add(new AlumnoDTO( resultado.getString(2), resultado.getString(3), 
+				alAlumnos.add(new AlumnoDTO(resultado.getInt(1), resultado.getString(2), resultado.getString(3), 
 						resultado.getString(4), resultado.getString(5), resultado.getInt(6)));
 			}
 		} catch (SQLException e) {
@@ -63,6 +65,25 @@ public class AlumnoDAOImpl implements AlumnoDAO {
 		}
 		return alAlumnos;
 	}
+	
+	
+	@Override
+	public ArrayList<AlumnoDTO> listarAlumnos(int idEmpresa) {
+		ArrayList<AlumnoDTO> alAlumnos = new ArrayList<AlumnoDTO>();;
+		try(PreparedStatement sentencia = ConexionDB.getInstance().getCon().prepareStatement(
+				"SELECT * FROM alumnos WHERE id_empresa=?")) {
+			sentencia.setInt(1, idEmpresa);
+			ResultSet resultado = sentencia.executeQuery();
+			while(resultado.next()) {
+				alAlumnos.add(new AlumnoDTO(resultado.getInt(1), resultado.getString(2), resultado.getString(3), 
+						resultado.getString(4), resultado.getString(5), resultado.getInt(6)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return alAlumnos;
+	}
+	
 
 	@Override
 	public ArrayList<AlumnoDTO> leeAlumno() {
@@ -88,6 +109,16 @@ public class AlumnoDAOImpl implements AlumnoDAO {
 		}
 			
 		return alAlumno;
+	}
+
+	@Override
+	public Element creaElementoAlumno(Document doc, AlumnoDTO alu) {
+		Element eleAlu = doc.createElement("alumno");
+		eleAlu.setAttribute("nombre", alu.getNombre());
+		eleAlu.setAttribute("apellidos", alu.getApellidos());
+		eleAlu.setAttribute("ciclo", alu.getCiclo());
+		eleAlu.setAttribute("curso", alu.getCurso());
+		return eleAlu;
 	}
 
 }

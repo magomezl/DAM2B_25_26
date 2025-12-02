@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<agenda>
+<empresas>
+<empresa contacto="Laura Fernández" direccion="Calle Mayor 12, León " email="contacto@techsolutions.com" nombre="Tech Solutions" telefono="987898789">
+<alumnos_asignados>
+<alumno apellidos="Pérez Gómez" ciclo="DAM" curso="2º" nombre="Carlos"/>
+<alumno apellidos="Gómez López" ciclo="DAM" curso="1º" nombre="María"/>
+</alumnos_asignados>
+</empresa>
+<empresa contacto="Pedro García" direccion="Avda. Gran Vía 45, León" email="info@innovasoft.com" nombre="InnovaSoft" telefono="987123452">
+<alumnos_asignados>
+<alumno apellidos="López Fernández" ciclo="DAW" curso="2º" nombre="Ana"/>
+</alumnos_asignados>
+</empresa>
+<empresa contacto="Ana López" direccion="Calle Ancha 8, León" email="soporte@datacorp.com" nombre="DataCorp" telefono="987566689">
+<alumnos_asignados>
+<alumno apellidos="Martín Ruiz" ciclo="ASIR" curso="1º" nombre="Javie"/>
+<alumno apellidos="García Torres" ciclo="DAM" curso="2º" nombre="Pedro"/>
+</alumnos_asignados>
+</empresa>
+<empresa contacto="Muis Martínez" direccion="Plaza España 3, León" email="cloud@cloudnet.com" nombre="CloudNet" telefono="987985543">
+<alumnos_asignados>
+<alumno apellidos="Hernández Gil" ciclo="ASIR" curso="2º" nombre="Sofía"/>
+</alumnos_asignados>
+</empresa>
+<empresa contacto="Marta Sánchez" direccion="Calle Ordoño II 20, León" email="ai@aifactory.com" nombre="AI Factory" telefono="987671343">
+<alumnos_asignados/>
+</empresa>
+<empresa contacto="Javier Torres" direccion="Parque Tecnológico, León" email="contacto@cybertechlabs.com" nombre="CyberTech Labs" telefono="987652211">
+<alumnos_asignados>
+<alumno apellidos="Álvarez Pérez" ciclo="DAW" curso="2º" nombre="Miguel"/>
+</alumnos_asignados>
+</empresa>
+<empresa contacto="DESCONOCIDO" direccion="DESCONOCIDO" email="DESCONOCIDO" nombre="NTTData" telefono="DESCONOCIDO">
+<alumnos_asignados>
+<alumno apellidos="Rodríguez León" ciclo="ASIR" curso="1º" nombre="David"/>
+</alumnos_asignados>
+</empresa>
+</empresas>
+<alumnos_sin_asignar>
+<alumno apellidos="Santos Díaz" ciclo="DAW" curso="1º" nombre="Lucía"/>
+<alumno apellidos="Fernández Soto" ciclo="DAM" curso="1º" nombre="Laura"/>
+</alumnos_sin_asignar>
+</agenda>

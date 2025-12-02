@@ -11,6 +11,16 @@ public class AlumnoDTO {
 	public AlumnoDTO() {
 	}
 
+	public AlumnoDTO(int id_alumno, String nombre, String apellidos, String ciclo, String curso, int id_empresa) {
+		super();
+		this.id_alumno = id_alumno;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.ciclo = ciclo;
+		this.curso = curso;
+		this.id_empresa = id_empresa;
+	}
+
 	public AlumnoDTO(String nombre, String apellidos, String ciclo, String curso, int id_empresa) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;

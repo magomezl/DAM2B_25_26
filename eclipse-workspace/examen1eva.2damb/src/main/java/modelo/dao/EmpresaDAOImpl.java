@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import modelo.bd.ConexionDB;
 import modelo.bd.ConexionDOC;
@@ -77,6 +79,17 @@ public class EmpresaDAOImpl implements EmpresaDAO {
 			fila = hoja.getRow(numFila++);
 		}
 		return alEmpresa;
+	}
+
+	@Override
+	public Element creaElementoEmpresa(Document doc, EmpresaDTO emp) {
+		Element eleEmp = doc.createElement("empresa");
+		eleEmp.setAttribute("nombre", emp.getNombre());
+		eleEmp.setAttribute("direccion", emp.getDireccion());
+		eleEmp.setAttribute("telefono", emp.getTelefono());
+		eleEmp.setAttribute("contacto", emp.getPersona_contacto());
+		eleEmp.setAttribute("email", emp.getEmail());
+		return eleEmp;
 	}
 
 }
