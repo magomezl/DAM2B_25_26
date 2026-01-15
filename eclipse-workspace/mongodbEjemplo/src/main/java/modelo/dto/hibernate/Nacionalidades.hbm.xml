@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 15 ene 2026, 19:44:17 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="biblioteca" name="modelo.dto.hibernate.Nacionalidades" optimistic-lock="none" table="nacionalidades">
+        <id name="idNacionalidad" type="java.lang.Integer">
+            <column name="idNacionalidad"/>
+            <generator class="identity"/>
+        </id>
+        <property name="nombre" type="string">
+            <column length="100" name="nombre" not-null="true" unique="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="autoreses" table="autores">
+            <key>
+                <column name="idNacionalidad" not-null="true"/>
+            </key>
+            <one-to-many class="modelo.dto.hibernate.Autores"/>
+        </set>
+    </class>
+</hibernate-mapping>

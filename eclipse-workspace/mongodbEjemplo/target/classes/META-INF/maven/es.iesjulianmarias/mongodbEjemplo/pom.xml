@@ -9,6 +9,60 @@
 			<artifactId>mongodb-driver-sync</artifactId>
 			<version>4.11.1</version>
 		</dependency>
-
+		
+		
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.33</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.1.6.Final</version>
+		</dependency>
+		<!-- JavaFX Controls. Incluye todos los componentes visuales: Button,
+		TextField… -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>21</version>
+		</dependency>
+		<!-- JavaFX FXM. Permite trabajar con archivos fxml que definen la
+		interfaz y se vinculan con controladores java -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>21</version>
+		</dependency>
 	</dependencies>
+	
+	
+	<properties>
+		<!--version de javafx que se usará -->
+		<javafx.version>21</javafx.version>
+		<!--el código fuente está escrito para Java 21 -->
+		<maven.compiler.source>21</maven.compiler.source>
+		<!--el bytecode generado será compatible con Java 21 -->
+		<maven.compiler.target>21</maven.compiler.target>
+	</properties>
+	<!--plugin que permite ejecutar la aplicación JavaFX directamente desde Maven sin tener que configurar argumentos de la Virtual Machine -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>0.0.8</version>
+				<configuration>
+					<!--Indicamos la clase principal que contiene el método main() y extiende Application 
+					ruta relativa a partir de src/main/java-->
+					<mainClass>main.App</mainClass> <!-- Cambia esto por tu clase principal -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	
+	
 </project>
