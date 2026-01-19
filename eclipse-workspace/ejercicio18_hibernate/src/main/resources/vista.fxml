@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Controller">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+            <TabPane layoutX="-2.0" prefHeight="375.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <tabs>
+                <Tab id="tabDptos" text="Departamentos">
+                     <content>
+                        <VBox prefHeight="261.0" prefWidth="464.0">
+                           <children>
+                              <TableView fx:id="tablaDepartamentos" onMouseClicked="#seleccionarDpto" prefHeight="148.0" prefWidth="373.0">
+                                <columns>
+                                  <TableColumn id="colIdDpto" fx:id="colIdDpto" prefWidth="75.0" text="ID" />
+                                  <TableColumn id="colNombreDpto" fx:id="colNombreDpto" prefWidth="75.0" text="Nombre" />
+                                    <TableColumn id="colLocalidadDpto" fx:id="colLocalidadDpto" prefWidth="75.0" text="Localidad" />
+                                </columns>
+                              </TableView>
+                              <HBox prefHeight="60.0" prefWidth="640.0">
+                                 <children>
+                                    <TextField id="txtNombreDpto" fx:id="txtNombreDpto" prefHeight="25.0" prefWidth="296.0" promptText="Nombre" HBox.hgrow="ALWAYS" />
+                                    <TextField id="txtLocalidadDpto" fx:id="txtLocalidadDpto" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="298.0" promptText="Localidad" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="158.0" prefHeight="60.0" prefWidth="640.0">
+                                 <children>
+                                    <Button id="btnAgregarDpto" mnemonicParsing="false" onAction="#guardarDepartamento" prefHeight="25.0" prefWidth="265.0" text="Agregar Departamento" HBox.hgrow="ALWAYS" />
+                                    <Button id="onModificarDpto" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarDepartamento" prefHeight="25.0" prefWidth="269.0" text="Modificar Departamento" HBox.hgrow="ALWAYS" />
+                                    <Button id="onEliminarDpto" layoutX="149.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminarDepartamento" prefHeight="0.0" prefWidth="291.0" text="Eliminar Departamento" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                <Tab text="Empleados">
+                     <content>
+                        <VBox prefHeight="261.0" prefWidth="464.0">
+                           <children>
+                              <TableView fx:id="tablaEmpleados" onMouseClicked="#seleccionarEmpleado" prefHeight="148.0" prefWidth="373.0">
+                                 <columns>
+                                    <TableColumn id="colIdEmpleado" fx:id="colIdEmpleado" prefWidth="75.0" text="ID" />
+                                    <TableColumn id="colNombreEmpleado" fx:id="colNombreEmpleado" prefWidth="75.0" text="Nombre" />
+                                    <TableColumn id="colApellido1Empleado" fx:id="colApellido1Empleado" prefWidth="122.00004577636719" text="Primer Apellido" />
+                                    <TableColumn id="colApellido2Empleado" fx:id="colApellido2Empleado" prefWidth="122.00004577636719" text="Segundo Apellido" />
+                                    <TableColumn id="colDptoEmpleado" fx:id="colDptoEmpleado" prefWidth="122.00004577636719" text="Departamento" />
+                                 </columns>
+                              </TableView>
+                              <HBox prefHeight="60.0" prefWidth="640.0">
+                                 <children>
+                                    <TextField id="txtNombreDpto" fx:id="txtNombreEmpleado" prefHeight="25.0" prefWidth="157.0" promptText="Nombre" HBox.hgrow="ALWAYS" />
+                                    <TextField id="txtLocalidadDpto" fx:id="txtApellido1Empleado" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="173.0" promptText="Primer Apellido" HBox.hgrow="ALWAYS" />
+                                    <TextField id="txtLocalidadDpto" fx:id="txtApellido2Empleado" layoutX="192.0" layoutY="10.0" prefHeight="25.0" prefWidth="168.0" promptText="Segundo Apellido" HBox.hgrow="ALWAYS" />
+                                    <ComboBox fx:id="ComboDptoEmpleado" prefHeight="25.0" prefWidth="223.0" promptText="Departamento" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="158.0" prefHeight="60.0" prefWidth="640.0">
+                                 <children>
+                                    <Button id="btnAgregarDpto" mnemonicParsing="false" onAction="#guardarEmpleado" prefHeight="25.0" prefWidth="265.0" text="Agregar Empleado" HBox.hgrow="ALWAYS" />
+                                    <Button id="onModificarDpto" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarEmpleado" prefHeight="25.0" prefWidth="269.0" text="Modificar Empleado" HBox.hgrow="ALWAYS" />
+                                    <Button id="onEliminarDpto" layoutX="149.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminarEmpleado" prefHeight="0.0" prefWidth="291.0" text="Eliminar Empleado" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content></Tab>
+              </tabs>
+            </TabPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
