@@ -1,3 +1,12 @@
 C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\controlador\Controlador.java
 C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\main\App.java
+C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\modelo\dao\hibernate\HibernateDAO.java
+C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\modelo\dao\hibernate\HibernateDAOImpl.java
+C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\modelo\dao\mongo\MongoDAO.java
+C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\modelo\dao\mongo\MongoDAOImpl.java
+C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\modelo\dto\hibernate\Autores.java
+C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\modelo\dto\hibernate\Generos.java
+C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\modelo\dto\hibernate\Libros.java
+C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\modelo\dto\hibernate\Nacionalidades.java
+C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\modelo\dto\observableFX\GeneroDTOPropiedadesJavaFX.java
 C:\Users\magomezl\eclipse-workspace\mongodbEjemplo\src\main\java\modelo\Prueba.java

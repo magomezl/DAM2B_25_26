@@ -1,23 +1,42 @@
 package controlador;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import modelo.dao.hibernate.HibernateDAO;
+import modelo.dao.hibernate.HibernateDAOImpl;
+import modelo.dao.mongo.MongoDAO;
+import modelo.dao.mongo.MongoDAOImpl;
+import modelo.dto.observableFX.GeneroDTOPropiedadesJavaFX;
 
 public class Controlador {
-
+	private static MongoDAO mongoDAO = new MongoDAOImpl();
+	private static HibernateDAO hibernateDAO = new HibernateDAOImpl();
+	
+	
     @FXML
     private ComboBox<?> ComboAutores;
+    
+    @FXML
+    private TableView<GeneroDTOPropiedadesJavaFX> tablaGeneros;
 
+    @FXML
+    private TableColumn<GeneroDTOPropiedadesJavaFX, String> colGeneroLibro;
+    
     @FXML
     private TableColumn<?, ?> colAnioLibro;
-
+    
     @FXML
-    private TableColumn<?, ?> colGeneroLibro;
+    private TableColumn<?, ?> colGeneroLibroEnLibros;
 
     @FXML
     private TableColumn<?, ?> colMuerteAutor;
@@ -55,8 +74,7 @@ public class Controlador {
     @FXML
     private TableView<?> tablaAutorias;
 
-    @FXML
-    private TableView<?> tablaGeneros;
+   
 
     @FXML
     private TableView<?> tablaLibros;
@@ -186,4 +204,20 @@ public class Controlador {
 
     }
 
+    @FXML
+    void initialize() {
+    	
+    	colGeneroLibro.setCellValueFactory(new PropertyValueFactory<>("generoNombre"));
+    	List<GeneroDTOPropiedadesJavaFX> algeneroFX = new ArrayList<GeneroDTOPropiedadesJavaFX>();
+    	
+    	for (String genero: mongoDAO.getGeneros()) {
+    		GeneroDTOPropiedadesJavaFX generoJFX = new GeneroDTOPropiedadesJavaFX(genero); 
+    		algeneroFX.add(generoJFX);
+    	}
+    	tablaGeneros.setItems(FXCollections.observableArrayList(algeneroFX));
+    	hibernateDAO.anadirGenero(mongoDAO.getGeneros());
+    }
+    
+    
+    
 }
