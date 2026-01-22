@@ -7,7 +7,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import modelo.dto.hibernate.Autores;
 import modelo.dto.hibernate.Generos;
+import modelo.dto.hibernate.Libros;
 
 public class HibernateDAOImpl implements HibernateDAO {
 	private static SessionFactory sF = new Configuration().configure().buildSessionFactory();
@@ -42,5 +44,17 @@ public class HibernateDAOImpl implements HibernateDAO {
 			}
 		}
 		return i;
+	}
+
+	@Override
+	public void anadirAutores(List<Autores> autores) {
+		
+		
+	}
+
+	@Override
+	public void anadirLibros(List<Libros> libros) {
+		// TODO Auto-generated method stub
+		
 	}
 }

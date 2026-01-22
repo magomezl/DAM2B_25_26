@@ -16,6 +16,8 @@ import modelo.dao.hibernate.HibernateDAO;
 import modelo.dao.hibernate.HibernateDAOImpl;
 import modelo.dao.mongo.MongoDAO;
 import modelo.dao.mongo.MongoDAOImpl;
+import modelo.dto.hibernate.Autores;
+import modelo.dto.hibernate.Libros;
 import modelo.dto.observableFX.GeneroDTOPropiedadesJavaFX;
 
 public class Controlador {
@@ -206,7 +208,9 @@ public class Controlador {
 
     @FXML
     void initialize() {
-    	
+    
+    	/** Ejercicio para prácticar. Leemos de MongDB los generos y los mostramos en la vista y los copiamos a la DB relacional 
+    	 * a través de hibernate
     	colGeneroLibro.setCellValueFactory(new PropertyValueFactory<>("generoNombre"));
     	List<GeneroDTOPropiedadesJavaFX> algeneroFX = new ArrayList<GeneroDTOPropiedadesJavaFX>();
     	
@@ -216,6 +220,19 @@ public class Controlador {
     	}
     	tablaGeneros.setItems(FXCollections.observableArrayList(algeneroFX));
     	hibernateDAO.anadirGenero(mongoDAO.getGeneros());
+    	**/
+    	
+    	/**
+    	 * Leeremos de MongoDB todo y lo pasaremos a la DB relacional con Hibernate. MUY IMPORTANTE
+    	 */
+    	
+    	// Obtengo dos listas de objetos desacoplados o detached/transient, es decir no gestionadas por hibernate 
+    	List<Autores> autores = mongoDAO.getAutores();
+    	List<Libros> libros = mongoDAO.getLibros();
+    	// con esto persistimos los objetos en hibernate (mySQL)
+    	hibernateDAO.anadirAutores(autores);
+    	hibernateDAO.anadirLibros(libros);
+    	
     }
     
     

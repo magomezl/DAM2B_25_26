@@ -2,7 +2,9 @@ package modelo.dao.hibernate;
 
 import java.util.List;
 
+import modelo.dto.hibernate.Autores;
 import modelo.dto.hibernate.Generos;
+import modelo.dto.hibernate.Libros;
 
 public interface HibernateDAO {
 	/**
@@ -17,6 +19,8 @@ public interface HibernateDAO {
 	 * @return número de generos añadidos
 	 */
 	int anadirGenero(List<String> generos);
+	void anadirAutores(List<Autores> autores);
+	void anadirLibros(List<Libros> libros);
 	
 
 }
