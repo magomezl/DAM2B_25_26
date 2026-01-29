@@ -19,8 +19,9 @@ public interface HibernateDAO {
 	 * @return número de generos añadidos
 	 */
 	int anadirGenero(List<String> generos);
-	void anadirAutores(List<Autores> autores);
-	void anadirLibros(List<Libros> libros);
+	int anadirAutores(List<Autores> autores);
+	int anadirLibros(List<Libros> libros);
 	
-
+	boolean anadirAutor(Autores autor);
+	boolean anadirLibro(Libros libro);
 }
