@@ -81,4 +81,13 @@ public class Autores implements java.io.Serializable {
 		this.libroses = libroses;
 	}
 
+	@Override
+	public String toString() {
+		return "Autores [idAutor=" + idAutor + ", nacionalidades=" + nacionalidades + ", nombre=" + nombre
+				+ ", nacimiento=" + nacimiento + ", muerte=" + muerte + ", libroses=" + libroses + "]";
+	}
+	
+	
+	
+
 }

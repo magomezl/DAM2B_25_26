@@ -23,8 +23,8 @@ public class HibernateDAOImpl implements HibernateDAO {
 	public boolean anadirGenero(Generos genero) {
 		sesion = sF.openSession();
 		Transaction t;
-		if (sesion.createQuery("FROM Generos WHERE nombre=:genero", Generos.class)
-			.setParameter("genero", genero.getNombre())
+		if (sesion.createQuery("FROM Generos WHERE LOWER(nombre)=:genero", Generos.class)
+			.setParameter("genero", genero.getNombre().toLowerCase())
 			.list()
 			.isEmpty()) {
 			t = sesion.beginTransaction();
@@ -48,6 +48,9 @@ public class HibernateDAOImpl implements HibernateDAO {
 		}
 		return i;
 	}
+	
+	
+	
 
 	@Override
 	public int anadirAutores(List<Autores> autores) {
@@ -113,12 +116,13 @@ public class HibernateDAOImpl implements HibernateDAO {
 		sesion = sF.openSession();
 		Transaction t = sesion.beginTransaction();
 		try { 
-			Generos g = libro.getGeneros();
-			if (g != null) {
+			//TODO que no se repita un libro que ya exista. Un libro se repie si tiene el mismo titulo y autores
+			if (libro.getGeneros() != null) {
+				Generos g = libro.getGeneros();
 				// El libro tiene genero. Vamos a ver si ya existe en la DB
 				Generos gBD = sesion.createSelectionQuery("FROM Generos g WHERE LOWER(g.nombre) = :nombre", Generos.class)
 						.setParameter("nombre", g.getNombre().toLowerCase())
-						.uniqueResult();
+						.getSingleResultOrNull();
 				if (gBD!=null) {
 					// Existe -> lo usamos
 					libro.setGeneros(gBD);
@@ -133,7 +137,7 @@ public class HibernateDAOImpl implements HibernateDAO {
 				for ( Object o: libro.getAutoreses()) {
 					Autores autor = (Autores) o;
 					//comprobar que no existe el autor en la DB
-					Autores autEnBD = sesion.createSelectionQuery("FROM Autores a WHERE LOWER(a.nombre) = :nombreA AND nacimiento = :anioNac", Autores.class)
+					Autores autEnBD = sesion.createSelectionQuery("FROM Autores a WHERE LOWER(a.nombre) = :nombreA AND a.nacimiento = :anioNac", Autores.class)
 							.setParameter("nombreA", autor.getNombre().toLowerCase())
 							.setParameter("anioNac", autor.getNacimiento())
 							.uniqueResult();
@@ -162,6 +166,9 @@ public class HibernateDAOImpl implements HibernateDAO {
 				}
 				libro.setAutoreses(autoresProcesados); 
 			 }
+			
+			
+			
 			sesion.persist(libro);
 			for (Autores au: autoresProcesados) {
 				au.getLibroses().add(libro);
@@ -182,5 +189,13 @@ public class HibernateDAOImpl implements HibernateDAO {
 			sesion.close();
 		}
 		return retorno;
+	}
+
+	@Override
+	public <T> List<T> getAll(Class<T> entityClass) {
+		try(Session sesion = sF.openSession()){
+			String hql = "FROM " + entityClass.getSimpleName();
+			return sesion.createSelectionQuery(hql, entityClass).getResultList();
+		}
 	}
 }

@@ -9,6 +9,8 @@ import java.util.Set;
  */
 public class Nacionalidades implements java.io.Serializable {
 
+	
+
 	private Integer idNacionalidad;
 	private String nombre;
 	private Set autoreses = new HashSet(0);
@@ -49,4 +51,9 @@ public class Nacionalidades implements java.io.Serializable {
 		this.autoreses = autoreses;
 	}
 
+	@Override
+	public String toString() {
+		return "Nacionalidades [idNacionalidad=" + idNacionalidad + ", nombre=" + nombre + ", autoreses=" + autoreses
+				+ "]";
+	}
 }

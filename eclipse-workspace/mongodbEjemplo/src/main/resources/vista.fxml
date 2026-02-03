@@ -34,19 +34,27 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Controlador">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
+        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
             <TabPane layoutX="-2.0" prefHeight="375.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <tabs>
                 <Tab id="tabGeneros" text="Generos">
@@ -65,9 +73,9 @@
                               </HBox>
                               <HBox layoutX="10.0" layoutY="158.0" prefHeight="60.0" prefWidth="640.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#guardarGenero" prefHeight="25.0" prefWidth="265.0" text="Agregar Genero" HBox.hgrow="ALWAYS" />
-                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarGenero" prefHeight="25.0" prefWidth="269.0" text="Modificar Genero" HBox.hgrow="ALWAYS" />
-                                    <Button layoutX="149.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminarGenero" prefHeight="0.0" prefWidth="291.0" text="Eliminar Genero" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnAgregarGenero" mnemonicParsing="false" onAction="#guardarGenero" prefHeight="25.0" prefWidth="265.0" text="Agregar Genero" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnModificarGenero" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarGenero" prefHeight="25.0" prefWidth="269.0" text="Modificar Genero" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnEliminarGenero" layoutX="149.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminarGenero" prefHeight="0.0" prefWidth="291.0" text="Eliminar Genero" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                            </children>
@@ -89,9 +97,9 @@
                               </HBox>
                               <HBox layoutX="10.0" layoutY="158.0" prefHeight="60.0" prefWidth="640.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#guardarNacionalidad" prefHeight="25.0" prefWidth="265.0" text="Agregar Nacionalidad" HBox.hgrow="ALWAYS" />
-                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarNacionalidad" prefHeight="25.0" prefWidth="269.0" text="Modificar Nacionalidad" HBox.hgrow="ALWAYS" />
-                                    <Button layoutX="149.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminarNacionalidad" prefHeight="0.0" prefWidth="291.0" text="Eliminar Nacionalidad" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnAgregarNacionalidad" mnemonicParsing="false" onAction="#guardarNacionalidad" prefHeight="25.0" prefWidth="265.0" text="Agregar Nacionalidad" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnModificarNacionalidad" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarNacionalidad" prefHeight="25.0" prefWidth="269.0" text="Modificar Nacionalidad" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnElliminarNacionalidad" layoutX="149.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminarNacionalidad" prefHeight="0.0" prefWidth="291.0" text="Eliminar Nacionalidad" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                            </children>
@@ -113,16 +121,16 @@
                               <HBox prefHeight="60.0" prefWidth="640.0">
                                  <children>
                                     <TextField fx:id="txtNombreAutor" prefHeight="25.0" prefWidth="345.0" promptText="Nombre" HBox.hgrow="ALWAYS" />
-                                    <TextField fx:id="txtNacionalidadAutor" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="130.0" promptText="Nacionalidad" HBox.hgrow="ALWAYS" />
-                                    <TextField fx:id="txtNacimientoAutor" layoutX="234.0" layoutY="10.0" prefHeight="25.0" prefWidth="130.0" promptText="Año Nacimiento" />
-                                    <TextField fx:id="txtMuerteAutor" layoutX="443.0" layoutY="10.0" prefHeight="25.0" prefWidth="103.0" promptText="Año Muerte" />
+                                    <ComboBox fx:id="cmbNacionalidadAutor" prefHeight="25.0" prefWidth="193.0" promptText="Nacionalidad" />
+                                    <TextField fx:id="txtNacimientoAutor" layoutX="234.0" layoutY="10.0" prefHeight="25.0" prefWidth="138.0" promptText="Año Nacimiento" />
+                                    <TextField fx:id="txtMuerteAutor" layoutX="443.0" layoutY="10.0" prefHeight="25.0" prefWidth="115.0" promptText="Año Muerte" />
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="158.0" prefHeight="60.0" prefWidth="640.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#guardarAutor" prefHeight="25.0" prefWidth="265.0" text="Agregar Autor" HBox.hgrow="ALWAYS" />
-                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarAutor" prefHeight="25.0" prefWidth="269.0" text="Modificar Autor" HBox.hgrow="ALWAYS" />
-                                    <Button layoutX="149.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminarAutor" prefHeight="0.0" prefWidth="291.0" text="Eliminar Autor" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnAgregarAutor" mnemonicParsing="false" onAction="#agregarAutor" prefHeight="25.0" prefWidth="269.0" text="Agregar Autor" />
+                                    <Button fx:id="btnModificarAutor" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#modificarAutor" prefHeight="25.0" prefWidth="269.0" text="Modificar Autor" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnEliminarAutor" layoutX="149.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminarAutor" prefHeight="0.0" prefWidth="291.0" text="Eliminar Autor" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
                            </children>
@@ -137,14 +145,22 @@
                                  <columns>
                                     <TableColumn fx:id="colTituloLibro" prefWidth="353.0" text="Título" />
                                     <TableColumn fx:id="colGeneroLibroEnLibros" prefWidth="65.0" text="Genero" />
-                                    <TableColumn fx:id="colAnioLibro" prefWidth="77.0" text="Año" />
                                  </columns>
                               </TableView>
                               <HBox prefHeight="60.0" prefWidth="640.0">
                                  <children>
-                                    <TextField fx:id="txtTituloLibro" prefHeight="25.0" prefWidth="438.0" promptText="Título" HBox.hgrow="ALWAYS" />
-                                    <TextField fx:id="txtGeneroLibro" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="173.0" promptText="Genero" HBox.hgrow="ALWAYS" />
-                                    <TextField fx:id="txtAnioLibro" layoutX="192.0" layoutY="10.0" prefHeight="25.0" prefWidth="168.0" promptText="Año" HBox.hgrow="ALWAYS" />
+                                    <HBox prefHeight="103.0" prefWidth="486.0">
+                                       <children>
+                                          <TextField fx:id="txtTituloLibro" prefHeight="25.0" prefWidth="438.0" promptText="Título" HBox.hgrow="ALWAYS" />
+                                          <ComboBox fx:id="cmbGenero" prefHeight="25.0" prefWidth="207.0" promptText="Genero" />
+                                       </children>
+                                    </HBox>
+                                    <VBox prefHeight="60.0" prefWidth="153.0">
+                                       <children>
+                                          <ComboBox fx:id="cmbAutorLibro" prefHeight="25.0" prefWidth="147.0" promptText="Autor" />
+                                          <TextArea prefHeight="88.0" prefWidth="153.0" />
+                                       </children>
+                                    </VBox>
                                  </children>
                               </HBox>
                               <HBox layoutX="10.0" layoutY="158.0" prefHeight="60.0" prefWidth="640.0">

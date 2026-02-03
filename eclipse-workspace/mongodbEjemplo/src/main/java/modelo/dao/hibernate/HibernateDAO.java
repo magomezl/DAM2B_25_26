@@ -24,4 +24,8 @@ public interface HibernateDAO {
 	
 	boolean anadirAutor(Autores autor);
 	boolean anadirLibro(Libros libro);
+	
+	
+	
+	<T> List<T> getAll(Class<T> entityClass);
 }

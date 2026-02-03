@@ -60,4 +60,11 @@ public class Libros implements java.io.Serializable {
 		this.autoreses = autoreses;
 	}
 
+	@Override
+	public String toString() {
+		return "Libros [idLibro=" + idLibro + ", generos=" + generos + ", titulo=" + titulo + ", autoreses=" + autoreses
+				+ "]";
+	}
+
+	
 }

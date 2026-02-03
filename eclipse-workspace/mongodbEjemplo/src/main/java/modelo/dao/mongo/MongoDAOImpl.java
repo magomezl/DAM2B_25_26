@@ -76,7 +76,7 @@ public class MongoDAOImpl implements MongoDAO {
 			//Gestión de la propiedad autoreses
 			Object a = doc.get("autor");
 			List<Autores> autoresHibernate = new ArrayList<Autores>();
-			Document aDoc;
+			Document aDoc = new Document();
 			if (a instanceof Document) {
 				// embebido
 				aDoc = (Document) a;
@@ -103,6 +103,7 @@ public class MongoDAOImpl implements MongoDAO {
 			}
 			l.setAutoreses(autoresSet);
 			//TODO falta
+			lista.add(l);
 		}
 		return lista;
 	}

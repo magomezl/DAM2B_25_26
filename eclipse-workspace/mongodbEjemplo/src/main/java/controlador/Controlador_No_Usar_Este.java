@@ -16,13 +16,11 @@ import modelo.dao.hibernate.HibernateDAO;
 import modelo.dao.hibernate.HibernateDAOImpl;
 import modelo.dao.mongo.MongoDAO;
 import modelo.dao.mongo.MongoDAOImpl;
-
-import modelo.dto.hibernate.Generos;
-
-import modelo.dto.hibernate.Nacionalidades;
+import modelo.dto.hibernate.Autores;
+import modelo.dto.hibernate.Libros;
 import modelo.dto.observableFX.GenericaDTOPropiedadesJavaFX;
 
-public class Controlador {
+public class Controlador_No_Usar_Este {
 	private static MongoDAO mongoDAO = new MongoDAOImpl();
 	private static HibernateDAO hibernateDAO = new HibernateDAOImpl();
 	
@@ -32,14 +30,9 @@ public class Controlador {
     
     @FXML
     private TableView<GenericaDTOPropiedadesJavaFX> tablaGeneros;
+
     @FXML
     private TableColumn<GenericaDTOPropiedadesJavaFX, String> colGeneroLibro;
-
-    @FXML
-    private TableView<GenericaDTOPropiedadesJavaFX> tablaNacionalidades;
-    @FXML
-    private TableColumn<GenericaDTOPropiedadesJavaFX, String> colNacionalidad;
-
     
     @FXML
     private TableColumn<?, ?> colAnioLibro;
@@ -59,7 +52,9 @@ public class Controlador {
     @FXML
     private TableColumn<?, ?> colNacimientoAutoria;
 
-    
+    @FXML
+    private TableColumn<?, ?> colNacionalidad;
+
     @FXML
     private TableColumn<?, ?> colNacionalidadAutor;
 
@@ -86,7 +81,9 @@ public class Controlador {
     @FXML
     private TableView<?> tablaLibros;
 
-    
+    @FXML
+    private TableView<?> tablaNacionalidades;
+
     @FXML
     private TextField txtAnioLibro;
 
@@ -113,11 +110,6 @@ public class Controlador {
 
     @FXML
     private TextField txtTituloLibro;
-    
-    @FXML
-    void agregarAutor(ActionEvent event) {
-
-    }
 
     @FXML
     void buscarLibroAutoria(ActionEvent event) {
@@ -216,6 +208,19 @@ public class Controlador {
 
     @FXML
     void initialize() {
+    
+    	/** Ejercicio para prácticar. Leemos de MongDB los generos y los mostramos en la vista y los copiamos a la DB relacional 
+    	 * a través de hibernate
+    	colGeneroLibro.setCellValueFactory(new PropertyValueFactory<>("generoNombre"));
+    	List<GeneroDTOPropiedadesJavaFX> algeneroFX = new ArrayList<GeneroDTOPropiedadesJavaFX>();
+    	
+    	for (String genero: mongoDAO.getGeneros()) {
+    		GeneroDTOPropiedadesJavaFX generoJFX = new GeneroDTOPropiedadesJavaFX(genero); 
+    		algeneroFX.add(generoJFX);
+    	}
+    	tablaGeneros.setItems(FXCollections.observableArrayList(algeneroFX));
+    	hibernateDAO.anadirGenero(mongoDAO.getGeneros());
+    	**/
     	
     	/**
     	 * Leeremos de MongoDB todo y lo pasaremos a la DB relacional con Hibernate. MUY IMPORTANTE
@@ -232,36 +237,7 @@ public class Controlador {
 //    	hibernateDAO.anadirAutores(autores);
 //    	hibernateDAO.anadirLibros(libros);
     	
-    	
-    	// Tap Genero
-    	this.colGeneroLibro.setCellValueFactory(new PropertyValueFactory("genericaNombre"));
-    	cargarDatosGeneros();
-    	
-    	// Tap Nacionalidadades
-    	this.colNacionalidad.setCellValueFactory(new PropertyValueFactory("genericaNombre"));
-    	cargarDatosNacionalidades();
-    	
     }
-
-    //TODO método genérico
-    private void cargarDatosNacionalidades() {
-    	List<GenericaDTOPropiedadesJavaFX> alJFX = new ArrayList<GenericaDTOPropiedadesJavaFX>();
-    	for ( Nacionalidades item: hibernateDAO.getAll(Nacionalidades.class)) {
-    		GenericaDTOPropiedadesJavaFX generoJFX = new GenericaDTOPropiedadesJavaFX(item.getIdNacionalidad(), item.getNombre());
-    		alJFX.add(generoJFX);
-    	}
-    	this.tablaNacionalidades.setItems(FXCollections.observableArrayList(alJFX));
-	}
-
-	//TODO hacer un solo método
-	private void cargarDatosGeneros() {
-		List<GenericaDTOPropiedadesJavaFX> algeneroJFX = new ArrayList<GenericaDTOPropiedadesJavaFX>();
-    	for (Generos genero: hibernateDAO.getAll(Generos.class)) {
-    		GenericaDTOPropiedadesJavaFX generoJFX = new GenericaDTOPropiedadesJavaFX(genero.getIdGenero(), genero.getNombre());
-    		algeneroJFX.add(generoJFX);
-    	}
-    	this.tablaGeneros.setItems(FXCollections.observableArrayList(algeneroJFX));
-	}
     
     
     
