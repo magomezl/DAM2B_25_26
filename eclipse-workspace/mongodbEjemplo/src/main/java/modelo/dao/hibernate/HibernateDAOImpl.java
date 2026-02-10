@@ -191,11 +191,41 @@ public class HibernateDAOImpl implements HibernateDAO {
 		return retorno;
 	}
 
+	// <T> inicial indica que se trata de un método genérico. Dentro del método podemos usar un tipo variable llamado T
 	@Override
 	public <T> List<T> getAll(Class<T> entityClass) {
 		try(Session sesion = sF.openSession()){
 			String hql = "FROM " + entityClass.getSimpleName();
 			return sesion.createSelectionQuery(hql, entityClass).getResultList();
 		}
+	}
+
+	@Override
+	public List<Autores> getAllAutoresConNacionalidad() {
+		try(Session sesion = sF.openSession()){
+			String hql = "FROM Autores LEFT JOIN FETCH nacionalidades"; 
+			return sesion.createSelectionQuery(hql, Autores.class).getResultList();
+		}
+	}
+
+	@Override
+	public List<Autores> buscarAutoresDeLibro(String tituloLibro) {
+		
+		if (tituloLibro == null || tituloLibro.trim().isEmpty()) {
+			return null;
+		}
+		try(Session sesion = sF.openSession()){
+			String hql = "SELECT DISTINCT a FROM Libros l JOIN l.autoreses a"
+					+ " LEFT JOIN FETCH a.nacionalidades "
+					+ " WHERE LOWER(l.titulo) LIKE :patronTituloLibro";
+					
+			
+			List<Autores> autores = sesion.createQuery(hql, Autores.class)
+					.setParameter("patronTituloLibro", "%" + tituloLibro + "%")
+					.getResultList();
+			return autores;
+		}
+		
+		
 	}
 }
