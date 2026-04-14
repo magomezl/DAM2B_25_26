@@ -1,0 +1,11 @@
+id,nombre,curso,iban,banco
+A11,Sara Jiménez,canto,ES9820385778983000122200,Santander
+A12,Tomás Herrero,guitarra,ES1021002345678900991111,BBVA
+A13,Raquel Blanco,piano,ES4321002345671234560000,CaixaBank
+A14,Álvaro Soria,batería,ES1120385778983000769999,Santander
+A15,Julia Ramírez,canto,ES5520385778983000110000,Santander
+A16,Diego Navarro,guitarra,ES7821002345670000678877,CaixaBank
+A17,Beatriz Molina,piano,ES6620385778983000554321,Santander
+A18,Óscar Vidal,batería,ES9021002345670000445566,BBVA
+A19,Clara Muñoz,canto,ES1121002345670000123000,BBVA
+A20,Ignacio Pardo,guitarra,ES5520385778983000111188,Santander
