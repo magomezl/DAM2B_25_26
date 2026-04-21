@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<academia>
+    <alumno id="A01">
+        <nombre>Laura Martínez</nombre>
+        <curso>canto</curso>
+        <cuota>120</cuota>
+        <domiciliacion>
+            <iban>ES9820385778983000760231</iban>
+            <banco>Santander</banco>
+        </domiciliacion>
+        <pagos>
+            <pago mes="enero" estado="pagado" importe="120"/>
+            <pago mes="febrero" estado="pendiente" importe="120"/>
+        </pagos>
+    </alumno>
+
+    <alumno id="A02">
+        <nombre>Pedro Gómez</nombre>
+        <curso>guitarra</curso>
+        <cuota>150</cuota>
+        <domiciliacion>
+            <iban>ES1021002345678900001234</iban>
+            <banco>BBVA</banco>
+        </domiciliacion>
+        <pagos>
+            <pago mes="enero" estado="pagado" importe="150"/>
+            <pago mes="febrero" estado="pagado" importe="150"/>
+        </pagos>
+    </alumno>
+
+    <alumno id="A03">
+        <nombre>Carla Rodríguez</nombre>
+        <curso>piano</curso>
+        <cuota>100</cuota>
+        <domiciliacion>
+            <iban>ES9021002345678900005555</iban>
+            <banco>BBVA</banco>
+        </domiciliacion>
+        <pagos>
+            <pago mes="enero" estado="pendiente" importe="100"/>
+            <pago mes="febrero" estado="pendiente" importe="100"/>
+        </pagos>
+    </alumno>
+
+    <alumno id="A04">
+        <nombre>Javier Ruiz</nombre>
+        <curso>batería</curso>
+        <cuota>180</cuota>
+        <domiciliacion>
+            <iban>ES9920385778983000123456</iban>
+            <banco>Santander</banco>
+        </domiciliacion>
+        <pagos>
+            <pago mes="enero" estado="pagado" importe="180"/>
+	    <pago mes="febrero" estado="pagado" importe="180"/>
+        </pagos>
+    </alumno>
+
+    <alumno id="A05">
+        <nombre>Marta López</nombre>
+        <curso>canto</curso>
+        <cuota>120</cuota>
+        <domiciliacion>
+            <iban>ES4321002345671234567890</iban>
+            <banco>CaixaBank</banco>
+        </domiciliacion>
+        <pagos>
+            <pago mes="enero" estado="pendiente" importe="120"/>
+        </pagos>
+    </alumno>
+
+    <alumno id="A06">
+        <nombre>Daniel Torres</nombre>
+        <curso>guitarra</curso>
+        <cuota>150</cuota>
+        <domiciliacion>
+            <iban>ES1120385778983000761111</iban>
+            <banco>Santander</banco>
+        </domiciliacion>
+        <pagos>
+            <pago mes="enero" estado="pagado" importe="150"/>
+            <pago mes="febrero" estado="pagado" importe="150"/>
+        </pagos>
+    </alumno>
+
+    <alumno id="A07">
+        <nombre>Lucía Sánchez</nombre>
+        <curso>piano</curso>
+        <cuota>100</cuota>
+        <domiciliacion>
+            <iban>ES0021002345670000123490</iban>
+            <banco>BBVA</banco>
+        </domiciliacion>
+        <pagos>
+            <pago mes="enero" estado="pendiente" importe="100"/>
+        </pagos>
+    </alumno>
+
+    <alumno id="A08">
+        <nombre>Hugo Pérez</nombre>
+        <curso>batería</curso>
+        <cuota>180</cuota>
+        <domiciliacion>
+            <iban>ES5520385778983000111177</iban>
+            <banco>Santander</banco>
+        </domiciliacion>
+        <pagos>
+            <pago mes="enero" estado="pagado" importe="180"/>
+            <pago mes="febrero" estado="pendiente" importe="180"/>
+        </pagos>
+    </alumno>
+
+    <alumno id="A09">
+        <nombre>Ana Moreno</nombre>
+        <curso>canto</curso>
+        <cuota>120</cuota>
+        <domiciliacion>
+            <iban>ES7821002345670000998877</iban>
+            <banco>CaixaBank</banco>
+        </domiciliacion>
+        <pagos>
+            <pago mes="enero" estado="pendiente" importe="120"/>
+            <pago mes="febrero" estado="pendiente" importe="120"/>
+        </pagos>
+    </alumno>
+
+    <alumno id="A10">
+        <nombre>Carlos Nieto</nombre>
+        <curso>guitarra</curso>
+        <cuota>150</cuota>
+        <domiciliacion>
+            <iban>ES1121002345670000123455</iban>
+            <banco>BBVA</banco>
+        </domiciliacion>
+        <pagos>
+            <pago mes="enero" estado="pagado" importe="150"/>
+        </pagos>
+    </alumno>
+</academia>
