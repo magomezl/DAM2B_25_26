@@ -8,6 +8,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.security.auth.login.Configuration;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.mysql.cj.xdevapi.SessionFactory;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.security.AnyTypePermission;
@@ -21,7 +27,6 @@ import ut_1_2.ejercicio3_XStream_MySQL.clasesXStream.Pago;
 public class Importar_XStream_MySQL {
 
 	public static void main(String[] args) {
-
 		try (Connection con = getConexion()) {
 
 			// Cargar XML con XStream

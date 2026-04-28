@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 27 abr 2026, 19:16:19 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="academia" name="clasesHibernate.Matriculas" optimistic-lock="none" table="matriculas">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="clasesHibernate.Alumnos" fetch="select" name="alumnos">
+            <column name="alumno_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="clasesHibernate.Cursos" fetch="select" name="cursos">
+            <column name="curso_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
